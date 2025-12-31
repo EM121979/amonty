@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>لحظات</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card message-card">
+
+    <div class="dots">
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <p class="text">لحظات وتفاصيل تفرح قلبك 😍</p>
+
+    <!-- فيديوهات -->
+    <div class="media-box">
+        <button onclick="playVideo('v1')">▶ Photo 1</button>
+        <img id="v1" src="img/1.jpeg" controls></img>
+    </div>
+
+    <div class="media-box">
+        <button onclick="playVideo('v2')">▶ Photo 2</button>
+        <img id="v2" src="img/2.jpeg" controls><img>
+    </div>
+
+    <div class="media-box">
+        <button onclick="playVideo('v3')">▶ Video 3</button>
+        <video id="v3" src="img/3.mp4" controls></video>
+
+    <button class="btn end" onclick="goNext()">😊 آخر حاجة</button>
+
+    <script>
+function goNext(){
+    window.location.href = "name.html";
+}
+</script>
+
+</div>
+
+<script>
+function playVideo(id){
+    const video = document.getElementById(id);
+    video.style.display = "block";
+    video.play();
+}
+</script>
+
+</body>
+</html>

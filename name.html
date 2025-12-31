@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nada Page</title>
+    <style>
+        /* إعدادات الخلفية العامة */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fce4ec, #f3e5f5); /* خلفية فاتحة هادية */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        /* الكارت الرئيسي */
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px 20px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        /* النص العلوي الأحمر */
+        .instruction {
+            color: #ff5252;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* كلمة Nada بالتدرج اللوني */
+        .name {
+            font-size: 5rem;
+            font-weight: bold;
+            background: linear-gradient(to bottom, #7b1fa2, #f06292);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 10px 0;
+            font-family: 'Brush Script MT', cursive; /* خط مائل يشبه الصورة */
+        }
+
+        /* الإيموجي والنجوم */
+        .icons {
+            font-size: 3rem;
+            margin: 20px 0;
+        }
+
+        /* النص السفلي */
+        .sub-text {
+            color: #333;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* الزر السفلي الأسود */
+        .btn-restart {
+            background-color: #212121;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .btn-restart:hover {
+            transform: scale(1.05);
+            background-color: #000;
+        }
+
+        /* حركة القلوب المتساقطة */
+        .heart {
+            position: absolute;
+            color: #ff80ab;
+            font-size: 20px;
+            animation: fall linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">        
+        <h1 class="name">Amonty</h1>
+        <h1 class="name">(Omnia)</h1>
+
+        <div class="icons">
+            ✨ 👸
+        </div>
+
+        <p class="sub-text">أحلى أمونه في الدنيا كلها 😍</p>
+
+        <a href="message.html" class="btn-restart">
+            🔄 من الأول؟
+        </a>
+    </div>
+
+    <script>
+
+        // 1. تأثير كتابة النص (Typewriter Effect) للنص العلوي
+const instructionText = document.querySelector('.instruction');
+const text = instructionText.innerHTML;
+instructionText.innerHTML = '';
+let i = 0;
+
+function typeWriter() {
+    if (i < text.length) {
+        instructionText.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50; // سرعة الكتابة
+    }
+}
+
+// 2. تأثير عند الضغط على زرار "من الأول؟" (إضافة قلوب كتيرة فجأة)
+document.querySelector('.btn-restart').addEventListener('click', function(e) {
+    e.preventDefault();
+    for(let j=0; j<20; j++) {
+        setTimeout(createHeart, j * 50);
+    }
+    alert("يلا نبدأ من جديد يا ندى! ✨");
+});
+
+// 3. تحريك الكارت مع حركة الماوس (Parallax Effect)
+const card = document.querySelector('.container');
+document.addEventListener('mousemove', (e) => {
+    let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+    let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+    card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+});
+
+// 4. تعديل وظيفة القلوب عشان تكون عشوائية الأحجام والألوان
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    
+    // مصفوفة أشكال متنوعة
+    const shapes = ['❤️', '💖', '✨', '🌸'];
+    heart.innerHTML = shapes[Math.floor(Math.random() * shapes.length)];
+    
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+    heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+    heart.style.opacity = Math.random();
+    
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+// تشغيل التأثيرات عند تحميل الصفحة
+window.onload = () => {
+    typeWriter();
+    setInterval(createHeart, 300);
+}
+    </script>
+
+</body>
+</html>

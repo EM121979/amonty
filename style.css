@@ -1,0 +1,133 @@
+body{
+    margin:0;
+    font-family:'Cairo',sans-serif;
+    background:linear-gradient(180deg,#0f0c29,#302b63,#24243e);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.card{
+    background:#fff;
+    width:360px;
+    padding:25px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+    animation:fade 1s ease;
+}
+
+@keyframes fade{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1;}
+}
+
+.year{
+    background:linear-gradient(45deg,#7f00ff,#e100ff);
+    color:white;
+    padding:10px 40px;
+    border-radius:25px;
+    display:inline-block;
+}
+
+.tree{
+    font-size:60px;
+    margin:10px 0;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    50%{transform:translateY(-15px);}
+}
+
+input{
+    width:80%;
+    padding:12px;
+    border-radius:30px;
+    border:2px solid #a855f7;
+    text-align:center;
+    margin:15px 0;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,#ff0080,#7928ca);
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+#error{
+    color:red;
+    margin-top:10px;
+}
+
+/* ===== message page ===== */
+
+.message-card{
+    text-align:center;
+}
+
+.dots span{
+    display:inline-block;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    margin:0 4px;
+}
+.dots span:nth-child(1){background:red}
+.dots span:nth-child(2){background:green}
+.dots span:nth-child(3){background:cyan}
+.dots span:nth-child(4){background:yellow}
+.dots span:nth-child(5){background:magenta}
+
+.title{
+    color:#c00;
+    margin:15px 0;
+}
+
+.mail{
+    font-size:40px;
+}
+
+.text{
+    margin:15px 0;
+    line-height:1.8;
+    font-size:16px;
+}
+.media-box{
+    margin:15px 0;
+}
+
+.media-box button{
+    width:100%;
+    padding:12px;
+    border-radius:25px;
+    border:none;
+    background:#f3e8ff;
+    color:#7928ca;
+    font-size:16px;
+    cursor:pointer;
+}
+
+video{
+    width:100%;
+    margin-top:10px;
+    border-radius:15px;
+    display:none;
+}
+
+img{
+    width:100%;
+    margin-top:10px;
+    border-radius:15px;
+    display:none;
+}
+
+.end{
+    margin-top:20px;
+}
